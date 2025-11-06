@@ -7,7 +7,11 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			logo: {
+				src: './src/assets/arkiv-logo.svg',
+				replacesTitle: true
+			},
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/arkiv-network' }],
 			sidebar: [
 				{
 					label: 'Guides',
