@@ -4,6 +4,8 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://arkiv-network.github.io',
+	base: '/learn-arkiv/',
 	integrations: [
 		starlight({
 			title: 'Learn Arkiv',
