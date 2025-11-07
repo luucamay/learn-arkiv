@@ -15,7 +15,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Fullstack Tutorial',
-					autogenerate: { directory: 'tutorial' },
+					autogenerate: { directory: 'fullstack-tutorial' },
 				},
 			],
 		}),
