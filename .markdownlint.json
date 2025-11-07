@@ -1,0 +1,5 @@
+{
+    "default": true,
+    "no-bare-urls": false,
+    "no-inline-html": false
+}

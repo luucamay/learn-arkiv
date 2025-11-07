@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Learn Arkiv',
 			logo: {
 				src: './src/assets/arkiv-logo.svg',
 				replacesTitle: true
@@ -14,15 +14,8 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/arkiv-network' }],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Fullstack Tutorial',
+					autogenerate: { directory: 'tutorial' },
 				},
 			],
 		}),
