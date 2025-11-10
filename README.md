@@ -1,49 +1,27 @@
-# Starlight Starter Kit: Basics
+# Learn Arkiv
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation and tutorials for building applications with Arkiv.
 
-```
-bun create astro@latest -- --template starlight
-```
+## Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```bash
+bun install
+bun dev
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Visit `http://localhost:4321`
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Deployment
 
-Static assets, like favicons, can be placed in the `public/` directory.
+The site is automatically deployed to GitHub Pages on push to `main`.
 
-## 🧞 Commands
+- **Docs**: https://arkiv-network.github.io/learn-arkiv/
+- **Fullstack tutorial live demo**: https://arkiv-network.github.io/learn-arkiv/_demos/fullstack-tutorial/
 
-All commands are run from the root of the project, from a terminal:
+### Configuration
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+Live demos are built and copied to the `_demos` folder during the github pages build step. The wallet addresses used in the demos can be configured by setting the `DEMO_WALLET_ADDRESSES` environment variable in the GitHub repository settings.
 
-## 👀 Want to learn more?
+## Framework documentation
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Learn more about [Starlight](https://starlight.astro.build/) and [Astro](https://docs.astro.build).
