@@ -99,6 +99,8 @@ h2 { text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 15px;
 .market-cap-chart { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 25px; height: 400px; }
 .charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; margin-bottom: 25px; }
 .chart-box { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.explorer-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background-color: #4299e1; color: white; text-decoration: none; border-radius: 6px; font-size: 0.9rem; font-weight: 500; transition: background-color 0.2s; }
+.explorer-link:hover { background-color: #3182ce; }
 @media (max-width: 768px) { .charts-container { grid-template-columns: 1fr; } .price-container { flex-direction: column; align-items: center; } }
 ```
 
@@ -301,6 +303,7 @@ export function updatePriceBoxes(btcData, ethData, glmData) {
         const priceChange = latest.change24h || 0;
         const changeClass = priceChange >= 0 ? 'positive' : 'negative';
         const changeSign = priceChange >= 0 ? '+' : '';
+        const explorerUrl = \`https://explorer.kaolin.hoodi.arkiv.network/entity/\${latest.entityKey}?tab=data\`;
 
         const box = document.createElement('div');
         box.className = 'price-box';
@@ -310,6 +313,7 @@ export function updatePriceBoxes(btcData, ethData, glmData) {
             <div class="price-change \${changeClass}">
                 \${changeSign}\${priceChange.toFixed(2)}% (24h)
             </div>
+            <a href="\${explorerUrl}" target="_blank" class="explorer-link">View on Arkiv Explorer →</a>
         \`;
         container.appendChild(box);
     });
@@ -400,7 +404,7 @@ async function fetchTokenDataFromArkiv(tokenId) {
         .fetch();
 
     return result.entities
-        .map(e => e.toJson())
+        .map(e => ({...e.toJson(), entityKey: e.key}))
         .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 }`}
   lang="js"
@@ -465,7 +469,7 @@ async function fetchTokenDataFromArkiv(tokenId) {
         .fetch();
 
     return result.entities
-        .map(e => e.toJson())
+        .map(e => ({...e.toJson(), entityKey: e.key}))
         .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 }
 
