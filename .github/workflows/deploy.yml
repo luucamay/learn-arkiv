@@ -20,22 +20,21 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
-      - name: Install, build, and upload your site
-        uses: withastro/action@v5
-      - name: Copy demo files
+      - name: Copy demo files to public directory
         run: |
-          echo "Copying demo files..."
-          mkdir -p dist/_demos/fullstack-tutorial
-          cp -r tutorial-source-code/fullstack-tutorial/frontend/* dist/_demos/fullstack-tutorial/
-          echo "Demo files copied to dist/_demos/fullstack-tutorial"
-
+          echo "Copying demo files to public directory..."
+          mkdir -p public/_demos/fullstack-tutorial
+          cp -r tutorial-source-code/fullstack-tutorial/frontend/* public/_demos/fullstack-tutorial/
+          echo "Demo files copied to public/_demos/fullstack-tutorial"
           if [ -n "${{ secrets.DEMO_WALLET_ADDRESSES }}" ]; then
             echo "Replacing USER_ADDRESS with configured address"
-            sed -i "s/const USER_ADDRESS = '0xYourAddressHere';/const USER_ADDRESS = '${{ secrets.DEMO_WALLET_ADDRESSES }}';/" dist/_demos/fullstack-tutorial/script.js
+            sed -i "s/const USER_ADDRESS = '0xYourAddressHere';/const USER_ADDRESS = '${{ secrets.DEMO_WALLET_ADDRESSES }}';/" public/_demos/fullstack-tutorial/script.js
             echo "USER_ADDRESS replaced successfully"
           else
             echo "DEMO_WALLET_ADDRESSES not set, skipping replacement"
           fi
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
 
   deploy:
     needs: build
