@@ -1,0 +1,18 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; padding: 20px; margin: 0; }
+h1 { text-align: center; color: #1a202c; margin-bottom: 30px; }
+h2 { text-align: center; font-size: 1.1rem; color: #4a5568; margin-bottom: 15px; }
+.main-container { max-width: 1400px; margin: auto; }
+.price-container { display: flex; justify-content: space-around; flex-wrap: wrap; margin-bottom: 30px; gap: 15px; }
+.price-box { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); min-width: 250px; text-align: center; transition: transform 0.2s; }
+.price-box:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.price-box .token-name { font-size: 1.3rem; font-weight: bold; color: #2d3748; text-transform: uppercase; }
+.price-box .current-price { font-size: 2.2rem; margin: 12px 0; font-weight: 600; color: #1a202c; }
+.price-change { font-size: 1rem; font-weight: 500; }
+.price-change.positive { color: #2f855a; }
+.price-change.negative { color: #c53030; }
+.market-cap-chart { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 25px; height: 400px; }
+.charts-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; margin-bottom: 25px; }
+.chart-box { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.explorer-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background-color: #4299e1; color: white; text-decoration: none; border-radius: 6px; font-size: 0.9rem; font-weight: 500; transition: background-color 0.2s; }
+.explorer-link:hover { background-color: #3182ce; }
+@media (max-width: 768px) { .charts-container { grid-template-columns: 1fr; } .price-container { flex-direction: column; align-items: center; } }

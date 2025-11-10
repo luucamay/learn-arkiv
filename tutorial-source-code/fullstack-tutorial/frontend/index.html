@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arkiv Crypto Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Arkiv Real-Time Crypto Dashboard</h1>
+
+    <div class="main-container">
+        <div id="price-container" class="price-container"></div>
+
+        <div class="charts-container">
+            <div class="chart-box">
+                <h2>Bitcoin Price (USD)</h2>
+                <canvas id="btcPriceChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h2>Ethereum Price (USD)</h2>
+                <canvas id="ethPriceChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h2>Golem Price (USD)</h2>
+                <canvas id="glmPriceChart"></canvas>
+            </div>
+        </div>
+
+
+        <div class="market-cap-chart">
+            <h2>Market Cap Comparison (USD) (log scale)</h2>
+            <canvas id="marketCapChart"></canvas>
+        </div>
+    </div>
+
+    <script type="module" src="charts.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
