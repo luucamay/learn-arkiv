@@ -1,4 +1,4 @@
-import { eq } from "@arkiv-network/sdk/query";
+import { desc, eq } from "@arkiv-network/sdk/query";
 import { createArkivClients } from "./wallet";
 import { jsonToPayload, ExpirationTime } from "@arkiv-network/sdk/utils";
 
@@ -16,17 +16,15 @@ export async function loadSketches(userAddress: string): Promise<Sketch[]> {
 			.buildQuery()
 			.where(eq("type", "sketch")) // our custom attribute we set when saving
 			.ownedBy(userAddress as `0x${string}`) // only sketches owned by the user
+			.orderBy(desc("timestamp", "number")) // order by timestamp - another custom attribute we set
 			.withPayload(true)
-			.limit(10)
+			.limit(9)
 			.fetch();
 
 		const sketches = result.entities
 			.map((entity) => {
 				try {
-					const payloadText = entity.payload
-						? new TextDecoder().decode(entity.payload)
-						: null;
-					const payload = payloadText ? JSON.parse(payloadText) : null;
+					const payload = entity.toJson();
 					if (payload?.imageData) {
 						return {
 							id: entity.key,
@@ -61,7 +59,10 @@ export async function saveSketch(
 			timestamp: Date.now(),
 		}),
 		contentType: "application/json",
-		attributes: [{ key: "type", value: "sketch" }],
+		attributes: [
+			{ key: "type", value: "sketch" }, // custom attribute to identify which entities are sketches
+			{ key: "timestamp", value: Date.now() }, // we will sort by this timestamp later
+		],
 		expiresIn: ExpirationTime.fromDays(365),
 	});
 
