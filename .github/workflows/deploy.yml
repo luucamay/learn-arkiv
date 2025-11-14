@@ -36,7 +36,7 @@ jobs:
       - name: Build metamask tutorial and copy to public directory
         run: |
           echo "Building Metamask tutorial..."
-          mkdir -p tutorial-source-code/metamask-tutorial/dist
+          mkdir -p public/_demos/metamask-tutorial
           cd tutorial-source-code/metamask-tutorial
           npm install
           npm run build -- --base=/learn-arkiv/_demos/metamask-tutorial/
