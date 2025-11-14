@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v5
-      - name: Copy demo files to public directory
+      - name: Copy fullstack tutorial demo files to public directory
         run: |
           echo "Copying demo files to public directory..."
           mkdir -p public/_demos/fullstack-tutorial
@@ -33,6 +33,16 @@ jobs:
           else
             echo "DEMO_WALLET_ADDRESSES not set, skipping replacement"
           fi
+      - name: Build metamask tutorial and copy to public directory
+        run: |
+          echo "Building Metamask tutorial..."
+          mkdir -p tutorial-source-code/metamask-tutorial/dist
+          cd tutorial-source-code/metamask-tutorial
+          npm install
+          npm run build -- --base=/learn-arkiv/_demos/metamask-tutorial/
+          echo "Copying Metamask tutorial to public directory..."
+          cp -r dist/* ../../public/_demos/metamask-tutorial/
+          echo "Metamask tutorial copied to public/_demos/metamask-tutorial"
       - name: Install, build, and upload your site
         uses: withastro/action@v5
 
