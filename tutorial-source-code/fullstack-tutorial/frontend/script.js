@@ -7,9 +7,9 @@ if (!USER_ADDRESS || USER_ADDRESS === '0xYourAddressHere') {
 }
 
 // Import Arkiv SDK for blockchain data access
-import { createPublicClient, http } from "https://esm.sh/@arkiv-network/sdk@0.3.2-dev.1?target=es2022&bundle-deps";
-import { eq } from "https://esm.sh/@arkiv-network/sdk@0.3.2-dev.1/query?target=es2022&bundle-deps";
-import { kaolin } from 'https://esm.sh/@arkiv-network/sdk@0.3.2-dev.1/chains?target=es2022&bundle-deps';
+import { createPublicClient, http } from 'https://esm.sh/@arkiv-network/sdk@0.4.2?target=es2022&bundle-deps';
+import { eq } from 'https://esm.sh/@arkiv-network/sdk@0.4.2/query?target=es2022&bundle-deps';
+import { mendoza } from 'https://esm.sh/@arkiv-network/sdk@0.4.2/chains?target=es2022&bundle-deps';
 
 // Import chart management functions
 import {
@@ -22,7 +22,7 @@ import {
 
 // Public client can only read data, no private key needed
 const client = createPublicClient({
-  chain: kaolin,
+  chain: mendoza,
   transport: http(),
 });
 
