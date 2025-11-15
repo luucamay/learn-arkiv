@@ -1,5 +1,5 @@
 import { createWalletClient, http } from '@arkiv-network/sdk';
-import { kaolin } from '@arkiv-network/sdk/chains';
+import { mendoza } from '@arkiv-network/sdk/chains';
 import { privateKeyToAccount } from '@arkiv-network/sdk/accounts';
 import { ExpirationTime, jsonToPayload } from '@arkiv-network/sdk/utils';
 import axios from 'axios';
@@ -15,7 +15,7 @@ const account = privateKeyToAccount(privateKey);
 
 // Create a wallet client to interact with Arkiv.
 const client = createWalletClient({
-  chain: kaolin, // We are using the Kaolin testnet.
+  chain: mendoza, // We are using the Mendoza testnet.
   transport: http(),
   account: account,
 });
